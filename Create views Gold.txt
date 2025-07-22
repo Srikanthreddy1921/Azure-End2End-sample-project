@@ -1,0 +1,56 @@
+------------------------
+--create view calender
+-----------------------
+create view gold.calender
+as SELECT *from OPENROWSET(
+    bulk'https://awstoragedatalake7.dfs.core.windows.net/silver1/AdventureWorks_Calendar/',
+    format = 'parquet'
+)as quer1
+------------------------
+--create view customers
+-----------------------
+create view gold.customer
+as SELECT *from OPENROWSET(
+    bulk'https://awstoragedatalake7.dfs.core.windows.net/silver1/AdventureWorks_Customers/',
+    format = 'parquet'
+)as quer2 
+------------------------
+--create view product categories
+-----------------------
+create view gold.product_categories
+as SELECT *from OPENROWSET(
+    bulk'https://awstoragedatalake7.dfs.core.windows.net/silver1/AdventureWorks_Product_Categories/',
+    format = 'parquet' 
+)as quer3
+------------------------
+--create view products
+-----------------------
+create view gold.products
+as SELECT *from OPENROWSET(
+    bulk'https://awstoragedatalake7.dfs.core.windows.net/silver1/AdventureWorks_Products/',
+    format = 'parquet'
+)as quer4
+------------------------
+--create view Returns
+-----------------------
+create view gold.returnss
+as SELECT *from OPENROWSET(
+    bulk'https://awstoragedatalake7.dfs.core.windows.net/silver1/AdventureWorks_Returns/',
+    format = 'parquet'
+)as quer5
+------------------------
+--create view sales
+-----------------------
+create view gold.sales
+as SELECT *from OPENROWSET(
+    bulk'https://awstoragedatalake7.dfs.core.windows.net/silver1/AdventureWorks_sales/',
+    format = 'parquet' 
+)as quer6
+------------------------
+--create view Product Sub categories
+-----------------------
+create view gold.product_subcategories
+as SELECT *from OPENROWSET(
+    bulk'https://awstoragedatalake7.dfs.core.windows.net/silver1/Product_Subcategories/',
+    format = 'parquet'
+)as quer7
